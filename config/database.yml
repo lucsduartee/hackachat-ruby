@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  database: indicai_development
+  port: 5432
+  username: postgres
+  password: postgres

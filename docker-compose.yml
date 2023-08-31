@@ -1,0 +1,27 @@
+version: "3.5"
+
+services:   
+  indicai:
+    tty: true
+    stdin_open: true
+    restart: on-failure
+    build:
+      dockerfile: Dockerfile
+    command: ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]
+    ports:
+      - 4567:4567
+    volumes:
+      - .:/indicAI
+    depends_on:
+      - db
+  db:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
