@@ -2,10 +2,7 @@
 
 require 'sinatra'
 require 'sinatra/reloader'
-require 'sinatra/activerecord'
 require './app/models/course/course'
-require 'dotenv'
-Dotenv.load
 
 # rubocop:disable Style/Documentation
 class IndicaAiApi < Sinatra::Base

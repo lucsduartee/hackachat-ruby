@@ -2,7 +2,6 @@
 
 require './app'
 require 'sinatra/reloader'
-require 'dotenv'
-Dotenv.load
+require 'sinatra/activerecord'
 
 run IndicaAiApi
