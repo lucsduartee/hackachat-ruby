@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require './app/indicai_api.rb'
+require './app'
+require 'sinatra/reloader'
 require 'dotenv'
 Dotenv.load
 

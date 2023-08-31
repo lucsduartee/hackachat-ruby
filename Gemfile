@@ -12,12 +12,9 @@ gem 'puma', '>=5.5.1'
 gem 'rack'
 gem 'rake'
 gem 'rubocop'
-gem 'sinatra-activerecord'
 gem 'sinatra', 'require' => 'sinatra/base'
-
-github 'sinatra/sinatra' do
-  gem 'sinatra-contrib'
-end
+gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
 
 group :test do
   gem 'rack-test'

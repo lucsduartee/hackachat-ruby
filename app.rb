@@ -8,12 +8,12 @@ require 'dotenv'
 Dotenv.load
 
 # rubocop:disable Style/Documentation
-class IndicaAiApi < Sinatra::Base    
+class IndicaAiApi < Sinatra::Base
   configure do
-    register Sinatra::Reloader
+    # register Sinatra::Reloader
     set :content_type, :json
   end
-  
+
   get '/' do
     'Hello world!'
   end
@@ -39,8 +39,8 @@ class IndicaAiApi < Sinatra::Base
   private
 
   def course_params
-    JSON.parse(request.body.read).dig('course')
+    JSON.parse(request.body.read)['course']
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
