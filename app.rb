@@ -10,12 +10,12 @@ Dotenv.load
 # rubocop:disable Style/Documentation
 class IndicaAiApi < Sinatra::Base
   configure do
-    # register Sinatra::Reloader
+    register Sinatra::Reloader
     set :content_type, :json
   end
 
   get '/' do
-    'Hello world!'
+    'Hello Changes!'
   end
 
   get '/courses' do
