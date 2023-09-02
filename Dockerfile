@@ -8,8 +8,6 @@ COPY Gemfile Gemfile.lock ./
 
 RUN gem install bundler && bundle install
 
-RUN chmod -R 777 ./
-
 EXPOSE 4567
 
 COPY . .

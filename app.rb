@@ -4,7 +4,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require './app/models/course/course'
 
-# rubocop:disable Style/Documentation
 class IndicaAiApi < Sinatra::Base
   configure do
     register Sinatra::Reloader
