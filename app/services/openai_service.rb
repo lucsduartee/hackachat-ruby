@@ -26,7 +26,7 @@ class OpenAIService
       to_replace: '@MESSAGES'
     ).prompt
 
-    @perform ||= get_response(prompt: prompt)
+    @response ||= get_response(prompt: prompt)
   end
 
   private
