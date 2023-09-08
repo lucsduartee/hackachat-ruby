@@ -1,41 +1,20 @@
 # frozen_string_literal: true
 
-require 'sinatra'
+require 'sinatra/base'
 require 'sinatra/reloader'
-require './app/models/course/course'
+require './app/models/course'
+require './app/services/openai_service'
+require './app/controllers/questions_controller'
 
 class IndicaAiApi < Sinatra::Base
+  use QuestionsController
+
   configure do
     register Sinatra::Reloader
-    set :content_type, :json
   end
 
   get '/' do
     'Hello Changes!'
-  end
-
-  get '/courses' do
-    content_type :json
-    { 'course' => Course.all }.to_json
-  end
-
-  post '/courses' do
-    course = course_params
-
-    {
-      'course' => Course.create(
-        name: course['name'],
-        description: course['description'],
-        tag_id: course['tag_id'],
-        page_content: course['page_content']
-      )
-    }.to_json
-  end
-
-  private
-
-  def course_params
-    JSON.parse(request.body.read)['course']
   end
 
   run! if app_file == $PROGRAM_NAME
